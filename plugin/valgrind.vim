@@ -1,5 +1,5 @@
 if !exists(":Valgrind")
-    command -nargs=1 -complete=file Valgrind call s:Valgrind(<f-args>)
+    command -nargs=+ -complete=file Valgrind call s:Valgrind(<f-args>)
 endif
 
 function s:ExtractError(filexml, fileerr)
@@ -57,6 +57,6 @@ function s:Valgrind(...)
     execute run_valgrind
     call s:ExtractError(tmpfilexml, tmpfileerror)
 
-    setlocal errorformat=%n:%f:%l:%m
+    setlocal errorformat+=%n:%f:%l:%m
     execute "cfile ".tmpfileerror
 endfunction
