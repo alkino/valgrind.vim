@@ -57,6 +57,6 @@ function s:Valgrind(...)
     execute run_valgrind
     call s:ExtractError(tmpfilexml, tmpfileerror)
 
-    setlocal errorformat=%n:%f:%l:%m
+    setlocal errorformat+=%n:%f:%l:%m
     execute "cfile ".tmpfileerror
 endfunction
