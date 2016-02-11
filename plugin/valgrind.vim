@@ -57,6 +57,8 @@ function s:Valgrind(...)
     execute run_valgrind
     call s:ExtractError(tmpfilexml, tmpfileerror)
 
+    let efm = &l:efm
     setlocal errorformat=%n:%f:%l:%m
     execute "cfile ".tmpfileerror
+    let &l:efm = efm
 endfunction
