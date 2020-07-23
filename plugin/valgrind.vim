@@ -2,7 +2,7 @@ if !exists(":Valgrind")
     command -nargs=+ -complete=file Valgrind call s:Valgrind(<f-args>)
 endif
 
-if(has('python') || !has('python3'))
+if(has('python') && !has('python3'))
 function s:ExtractError(filexml, fileerr)
 python << EOF
 import xml.etree.ElementTree as ET
