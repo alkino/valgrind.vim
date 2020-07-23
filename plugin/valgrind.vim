@@ -3,7 +3,8 @@ if !exists(":Valgrind")
 endif
 
 function s:ExtractError(filexml, fileerr)
-python << EOF
+python3 << EOF
+import os
 import xml.etree.ElementTree as ET
 root = ET.parse(vim.eval("a:filexml")).getroot()
 
